@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-IN" dir="ltr">
+  <head>
+    <title>du yu lop me?</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Pratama"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <link rel="stylesheet" href="./style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3EWCZHDCG9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-3EWCZHDCG9');
+    </script>
+  </head>
+  <body>
+        <div id="ask" class="container">
+            <div >
+                <h1 class = "header_text">kamu masih lopyu ga sama tamaa?</h1>
+            </div>
+            <div class="gif_container">
+                <img src="image/ask.gif" alt="Pentol">
+            </div>
+            <div class = "buttons">
+                <button class="btn" id = "yesButton" onclick="nextPage()">lopyuu banget</button>
+                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">ga, makasih</button>
+            </div>
+        </div>
+        <div id="ans" class="container">
+            <div >
+                <h1 class = "header_text">uYeeeyyyy lopyutuu careennn!!</h1>
+            </div>
+            <div class="gif_container">
+                <img src="image/ans.gif" alt="Pentol">
+            </div>
+            <video id="ansvideo" width="0" height="0" controls>
+        </div>
+    </body> 
+    <script>
+
+        var debounce = function(fn, t = 1000) {
+            let timer;
+            return function(...args) {
+                clearTimeout(timer);
+                timer = setTimeout(() => fn(...args), t);
+            }
+        };
+
+
+        function playAudio()
+        {
+            document.getElementById('novideo').play();
+        }
+
+        function nextPage() {
+            //window.location.href = "yes.html";
+            document.getElementById('ans').style.display = 'block';
+            document.getElementById('ask').style.display = 'none';
+            document.getElementById('novideo').pause();
+            document.getElementById('ansvideo').play();
+        }
+
+        function moveButton() {
+            var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth);
+            var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight);
+            document.getElementById('noButton').style.left = `${x}px`;
+            document.getElementById('noButton').style.top = `${y}px`;
+            playAudio();
+        }
+
+    </script> 
+</html>
